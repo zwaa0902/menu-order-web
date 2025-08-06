@@ -23,7 +23,7 @@ export default function ConfirmOrderClient() {
   const handleSubmit = () => {
     //TODO: POST order to API here if needed
     toast.success("Đã gửi đơn hàng!");
-    router.push(`/?tableNumber=${tableNumber}`);
+    router.push(`/success-order`);
   };
 
   const handleQuantityChange = (id: string, newQuantity: number) => {

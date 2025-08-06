@@ -1,13 +1,11 @@
 "use client";
 import { useMenu } from "@/context/MenuContext";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { cn } from "@/lib/utils";
 
 export default function CartIcon() {
   const { orders } = useMenu();
   const router = useRouter();
-  const searchParams = useSearchParams();
-  const table = searchParams.get("tableNumber") ?? "1";
   const count = orders.filter((o) => o.quantity > 0).length;
 
   const handleClick = () => {
