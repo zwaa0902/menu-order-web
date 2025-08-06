@@ -1,3 +1,11 @@
+interface OrderModelJson {
+  id: string;
+  name: string;
+  price: number;
+  imageUrl: string;
+  quantity: number;
+}
+
 export class OrderModel {
   id: string;
   name: string;
@@ -25,7 +33,7 @@ export class OrderModel {
     this.quantity = quantity;
   }
 
-  static fromJson(json: any): OrderModel {
+  static fromJson(json: OrderModelJson): OrderModel {
     return new OrderModel({
       id: json.id,
       name: json.name,
@@ -35,7 +43,7 @@ export class OrderModel {
     });
   }
 
-  toJson(): Record<string, any> {
+  toJson(): OrderModelJson {
     return {
       id: this.id,
       name: this.name,
