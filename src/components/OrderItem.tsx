@@ -2,8 +2,6 @@
 "use client";
 import { OrderModel } from "@/models/order_model";
 import { priceFormat } from "@/lib/price";
-import { useState } from "react";
-import { Button } from "@/components/ui/button";
 
 interface Props {
   order: OrderModel;
