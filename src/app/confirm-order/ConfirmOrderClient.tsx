@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 
 import { Button } from "@/components/ui/button";
@@ -34,9 +35,9 @@ export default function ConfirmOrderClient() {
   };
 
   return (
-    <div className="flex flex-col h-screen p-4 bg-gray-50">
-      <header className="text-2xl font-bold mb-6">
-        Xác nhận đơn hàng - Bàn {tableNumber}
+    <div className="flex flex-col h-screen bg-gray-50">
+      <header className="p-4 pb-2">
+        <h1 className="text-2xl font-bold">Xác nhận đơn hàng - Bàn {tableNumber}</h1>
       </header>
 
       {selectedItems.length === 0 ? (
@@ -45,7 +46,7 @@ export default function ConfirmOrderClient() {
         </p>
       ) : (
         <>
-          <main className="flex-1 overflow-auto space-y-4">
+          <main className="flex-1 overflow-y-auto px-4 space-y-4">
             {selectedItems.map((item) => (
               <div
                 key={item.id}
@@ -97,7 +98,7 @@ export default function ConfirmOrderClient() {
             ))}
           </main>
 
-          <footer className="pt-4 mt-6 border-t border-gray-300">
+          <footer className="sticky bottom-0 left-0 right-0 p-4 border-t border-gray-300">
             <div className="flex justify-between text-xl font-bold mb-4">
               <span>Tổng cộng:</span>
               <span className="text-green-700">{priceFormat(total)}₫</span>

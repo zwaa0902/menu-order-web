@@ -19,16 +19,14 @@ export default function FireworkAnimation() {
   }, []);
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center  bg-opacity-60">
+    <div className="w-full h-full flex items-center justify-center">
       <Lottie
         lottieRef={animationRef}
         animationData={animationData}
         loop={true}
         style={{
-          width: "50%",
-          height: "50%",
-          position: "absolute",
-          top: 0,
+          width: "100%",
+          height: "200px",
           pointerEvents: "none",
         }}
       />

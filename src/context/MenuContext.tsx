@@ -9,6 +9,7 @@ interface MenuContextProps {
   filteredOrders: OrderModel[];
   updateOrderQuantity: (id: string, quantity: number) => void;
   filterOrders: (term: string) => void;
+  clearOrders: () => void;
 }
 
 const initialOrders: OrderModel[] = [
@@ -52,9 +53,24 @@ export const MenuProvider = ({ children }: { children: React.ReactNode }) => {
     );
   };
 
+  const clearOrders = () => {
+    setOrders(prev => 
+      prev.map(item => item.copyWith({ quantity: 0 }))
+    );
+    setFilteredOrders(prev => 
+      prev.map(item => item.copyWith({ quantity: 0 }))
+    );
+  };
+
   return (
     <MenuContext.Provider
-      value={{ orders, filteredOrders, updateOrderQuantity, filterOrders }}
+      value={{ 
+        orders, 
+        filteredOrders, 
+        updateOrderQuantity, 
+        filterOrders, 
+        clearOrders 
+      }}
     >
       {children}
     </MenuContext.Provider>
